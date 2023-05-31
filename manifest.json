@@ -1,0 +1,13 @@
+{
+    "name": "Multi-sided Flashcards",
+    "description": "Flashcard app with multiple sides, so you can check what you need, when you need.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": {
+
+        },
+        "default_title": "Multi-Flashcards",
+        "default_popup": "templates/index.html"
+    }
+}

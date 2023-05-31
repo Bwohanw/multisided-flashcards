@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    /*TO BE REMOVED*/
+    border:1px solid black;
+  }
+
+
+  .container {
+    width:100%;
+    height:30rem;
+    display:flex;
+    align-items:center;
+    background-color: blanchedalmond;
+    /* makes the buttons line up vertically. */
+    flex-direction:column;
+  }
+
+.header {
+    width:30rem;
+    text-align:center;
+}
+
+  .btn1 {
+    padding-top:6rem;
+    text-decoration: none;
+  }
+
+  .btn2 {
+    padding-top:6rem;
+    text-decoration: none;
+  }
