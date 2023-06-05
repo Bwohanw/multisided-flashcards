@@ -12,4 +12,7 @@ var filteredarr = arr.filter(function(value, index, arr) {
 });
 
 const numTopics = filteredarr.length;
-console.log(numTopics);
+
+var topiccounter = 0;
+
+document.querySelector(".topic h1").innerHTML = filteredarr[topiccounter] + ':';

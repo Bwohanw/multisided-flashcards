@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    /*TO BE REMOVED*/
+    border:1px solid black;
+  }
+
+  html {
+    font-size: large;
+  }
+
+  .container {
+    width:100%;
+    height:100%;
+    background-color: blanchedalmond;
+  }
+
+
+  .notes {
+    width:40rem;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+  }
+
+  #langle {
+    padding-right:1rem;
+  }
+
+  #langle:hover {
+    cursor: pointer;
+  }
+
+  #rangle {
+    padding-left:1rem;
+  }
+
+  #rangle:hover {
+    cursor:pointer;
+  }
+
+  .text {
+    width:35rem;
+    height:20rem;
+  }
+
+  .buttoncontain {
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .cardcommands {
+    width:20rem;
+    display:flex;
+    justify-content:space-evenly;
+    font-size:larger;
+  }
+
+  #flipside {
+    font-size:large;
+  }
+
+  #flipside:hover {
+    cursor: pointer;
+  }
+
+  #newcard {
+    font-size:large;
+  }
+
+  #newcard:hover {
+    cursor:pointer;
+  }
