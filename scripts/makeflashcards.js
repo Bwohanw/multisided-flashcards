@@ -65,7 +65,7 @@ document.getElementById("langle").addEventListener('click', () => {
     flashcards[whichcard][topic] = document.getElementById("text").value;
 
     whichtopic = 0;
-    whichcard = whichcard < 0 ? 0 : whichcard-1;
+    whichcard = whichcard-1 < 0 ? flashcards.length - 1 : whichcard-1;
     document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
     document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
     console.log(flashcards);
@@ -79,5 +79,28 @@ document.getElementById("rangle").addEventListener('click', () => {
     whichcard = (whichcard + 1) % flashcards.length;
     document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
     document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
+    console.log(flashcards);
+})
+
+document.getElementById("delete").addEventListener('click', () => {
+    if (flashcards.length == 1) {
+        populateemptyflashcard();
+        whichtopic = 0;
+        whichcard = 0;
+        document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+        document.getElementById("text").value = "";
+    } else {
+        var newarr = [];
+        for (var i = 0; i < flashcards.length; i++) {
+            if (i != whichcard) {
+                newarr.push(flashcards[i]);
+            }
+        }
+        flashcards = newarr;
+        whichtopic = 0;
+        whichcard = whichcard - 1 < 0 ? flashcards.length - 1 : whichcard - 1;
+        document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+        document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
+    }
     console.log(flashcards);
 })

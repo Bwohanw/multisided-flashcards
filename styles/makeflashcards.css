@@ -74,3 +74,16 @@
   #newcard:hover {
     cursor:pointer;
   }
+
+
+  .deletebutton {
+    display:flex;
+  }
+  
+  #delete {
+    font-size:large;
+  }
+
+  #delete:hover {
+    cursor:pointer;
+  }
