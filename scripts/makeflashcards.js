@@ -24,10 +24,17 @@ function populateemptyflashcard() {
     }
 }
 
+function updateinfo() {
+    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+    document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + filteredarr.length;
+    document.getElementById("text").value = flashcards[whichcard][filteredarr[whichtopic]];
+}
+
 //populates the first flashcard that the user is given
 populateemptyflashcard();
 
 document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + filteredarr.length;
 
 document.getElementById("flipside").addEventListener('click', () => {
     var topic = filteredarr[whichtopic];
@@ -37,8 +44,7 @@ document.getElementById("flipside").addEventListener('click', () => {
         flashcards[whichcard][topic] = "";
     }
     whichtopic = (whichtopic + 1) % numTopics;
-    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-    document.getElementById("text").value = flashcards[whichcard][filteredarr[whichtopic]];
+    updateinfo();
 
     console.log(flashcards);
 });
@@ -55,8 +61,7 @@ document.getElementById("newcard").addEventListener('click', () => {
 
     //populates the flashcard that was just pushed
     populateemptyflashcard();
-    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-    document.getElementById("text").value = "";//empty since it's new for sure
+    updateinfo();
     console.log(flashcards);
 });
 
@@ -66,8 +71,7 @@ document.getElementById("langle").addEventListener('click', () => {
 
     whichtopic = 0;
     whichcard = whichcard-1 < 0 ? flashcards.length - 1 : whichcard-1;
-    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-    document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
+    updateinfo();
     console.log(flashcards);
 })
 
@@ -77,8 +81,7 @@ document.getElementById("rangle").addEventListener('click', () => {
 
     whichtopic = 0;
     whichcard = (whichcard + 1) % flashcards.length;
-    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-    document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
+    updateinfo();
     console.log(flashcards);
 })
 
@@ -87,8 +90,7 @@ document.getElementById("delete").addEventListener('click', () => {
         populateemptyflashcard();
         whichtopic = 0;
         whichcard = 0;
-        document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-        document.getElementById("text").value = "";
+        updateinfo();
     } else {
         var newarr = [];
         for (var i = 0; i < flashcards.length; i++) {
@@ -99,8 +101,7 @@ document.getElementById("delete").addEventListener('click', () => {
         flashcards = newarr;
         whichtopic = 0;
         whichcard = whichcard - 1 < 0 ? flashcards.length - 1 : whichcard - 1;
-        document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
-        document.getElementById("text").value = flashcards[whichcard][filteredarr[0]];
+        updateinfo();
     }
     console.log(flashcards);
 })
