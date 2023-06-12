@@ -22,6 +22,15 @@ infoform.addEventListener("submit", (e) => {
         return;
     }
 
+    const unique = new Set();
+    for (var i = 0; i < filteredarr.length; i++) {
+        unique.add(filteredarr[i]);
+    }
+    if (unique.size != filteredarr.length) {
+        alert("Please enter unique topics");
+        return;
+    }
+
     localStorage.setItem("newname", flashname.value);
     localStorage.setItem("newtopics", info.value);
     window.location.href = "makeflashcards.html";

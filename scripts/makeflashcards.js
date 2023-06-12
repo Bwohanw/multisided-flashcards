@@ -25,7 +25,7 @@ function populateemptyflashcard() {
 }
 
 function updateinfo() {
-    document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+    document.querySelector(".topic h2").innerHTML = filteredarr[whichtopic] + ':';
     document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + filteredarr.length;
     document.getElementById("text").value = flashcards[whichcard][filteredarr[whichtopic]];
 }
@@ -33,7 +33,9 @@ function updateinfo() {
 //populates the first flashcard that the user is given
 populateemptyflashcard();
 
-document.querySelector(".topic h1").innerHTML = filteredarr[whichtopic] + ':';
+
+document.querySelector(".topic h1").innerHTML = newname;
+document.querySelector(".topic h2").innerHTML = filteredarr[whichtopic] + ':';
 document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + filteredarr.length;
 
 document.getElementById("flipside").addEventListener('click', () => {
