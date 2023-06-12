@@ -34,7 +34,7 @@ function updateinfo() {
 populateemptyflashcard();
 
 
-document.querySelector(".topic h1").innerHTML = newname;
+document.querySelector(".topic h1").innerHTML = "Flashcard Set: " + newname;
 document.querySelector(".topic h2").innerHTML = filteredarr[whichtopic] + ':';
 document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + filteredarr.length;
 
@@ -55,12 +55,18 @@ document.getElementById("newcard").addEventListener('click', () => {
     //saves the current data from the card that they have
     var topic = filteredarr[whichtopic];
     flashcards[whichcard][topic] = document.getElementById("text").value;
-    //resets the topic for consistency between cards and also sets the flashcard we're adding to to the end
-    //We make it the length because we'll be increasing the number of elements by 1 right after.
     whichtopic = 0;
-    whichcard = flashcards.length;
-    flashcards.push({});
-
+    //inserts the new flashcard at the position we created it in
+    var newflashcards = [];
+    for (var i = 0; i < flashcards.length; i++) {
+        newflashcards.push(flashcards[i]);
+        if (i==whichcard) {
+            newflashcards.push({});
+        }
+    }
+    whichcard++;
+    flashcards = newflashcards;
+    
     //populates the flashcard that was just pushed
     populateemptyflashcard();
     updateinfo();
