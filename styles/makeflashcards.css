@@ -78,6 +78,7 @@
 
   .deletebutton {
     display:flex;
+    justify-content: space-between;
   }
   
   #delete {
@@ -85,5 +86,15 @@
   }
 
   #delete:hover {
+    cursor:pointer;
+  }
+
+  #finish {
+    font-size:large;
+    color:red;
+    margin-left:3rem;
+  }
+
+  #finish:hover {
     cursor:pointer;
   }

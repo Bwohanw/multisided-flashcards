@@ -113,3 +113,7 @@ document.getElementById("delete").addEventListener('click', () => {
     }
     console.log(flashcards);
 })
+
+document.getElementById("finish").addEventListener("click", () => {
+    console.log("here");
+})
