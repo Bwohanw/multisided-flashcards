@@ -31,6 +31,23 @@ infoform.addEventListener("submit", (e) => {
         return;
     }
 
+    var existing = {}
+    try {
+        var temp = localStorage.getItem("flashcardset");
+        if (temp != null) {
+            existing = JSON.parse(temp);
+        } else {
+            existing = {};
+        }
+    } catch {}
+    const keys = Object.keys(existing);
+    for (var i = 0; i < keys.length; i++) {
+        if (keys[i] === flashname.value) {
+            alert("please enter a unique name for your flashcards!");
+            return;
+        }
+    }
+
     localStorage.setItem("newname", flashname.value);
     localStorage.setItem("newtopics", info.value);
     window.location.href = "makeflashcards.html";

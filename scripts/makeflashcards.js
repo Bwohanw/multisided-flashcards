@@ -30,6 +30,24 @@ function updateinfo() {
     document.getElementById("text").value = flashcards[whichcard][filteredarr[whichtopic]];
 }
 
+//saves the flashcard data to localstorage
+function savedata() {
+    var existing = {};
+    try {
+        temp = localStorage.getItem("flashcardset");
+        console.log(temp);
+        if (temp == null) {
+            existing = {};
+        } else {
+            existing = JSON.parse(temp);
+        }
+    } catch {
+    }
+    existing[newname] = flashcards;
+    console.log(existing);
+    localStorage.setItem("flashcardset", JSON.stringify(existing));
+}
+
 //populates the first flashcard that the user is given
 populateemptyflashcard();
 
@@ -48,6 +66,7 @@ document.getElementById("flipside").addEventListener('click', () => {
     whichtopic = (whichtopic + 1) % numTopics;
     updateinfo();
 
+    savedata();
     console.log(flashcards);
 });
 
@@ -70,6 +89,8 @@ document.getElementById("newcard").addEventListener('click', () => {
     //populates the flashcard that was just pushed
     populateemptyflashcard();
     updateinfo();
+
+    savedata();
     console.log(flashcards);
 });
 
@@ -80,6 +101,8 @@ document.getElementById("langle").addEventListener('click', () => {
     whichtopic = 0;
     whichcard = whichcard-1 < 0 ? flashcards.length - 1 : whichcard-1;
     updateinfo();
+
+    savedata();
     console.log(flashcards);
 })
 
@@ -90,6 +113,8 @@ document.getElementById("rangle").addEventListener('click', () => {
     whichtopic = 0;
     whichcard = (whichcard + 1) % flashcards.length;
     updateinfo();
+
+    savedata();
     console.log(flashcards);
 })
 
@@ -111,9 +136,13 @@ document.getElementById("delete").addEventListener('click', () => {
         whichcard = whichcard - 1 < 0 ? flashcards.length - 1 : whichcard - 1;
         updateinfo();
     }
+
+    savedata();
     console.log(flashcards);
 })
 
 document.getElementById("finish").addEventListener("click", () => {
-    console.log("here");
+    savedata();
+    alert("Access your flashcard set anytime from the existing sets!");
+    window.location.href = "index.html";
 })
