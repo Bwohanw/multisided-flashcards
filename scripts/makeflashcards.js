@@ -48,9 +48,38 @@ function savedata() {
     localStorage.setItem("flashcardset", JSON.stringify(existing));
 }
 
-//populates the first flashcard that the user is given
-populateemptyflashcard();
 
+//tries to get an existing flashcard set from localstorage with that name. If none exists, it creates a new one
+//it should always create a new one when the user is making an new set. However, it should get from localstorage whenever
+//the user is editing a previous set or returns to editing after pressing the finish button.
+try {
+    console.log("retrieve from localstorage");
+    var temp = localStorage.getItem("flashcardset");
+    console.log(temp);
+    if (temp != null) {
+        var existing = JSON.parse(temp);
+        console.log(existing);
+        flashcards = existing[newname];
+        console.log(flashcards);
+        if (flashcards === undefined) {
+            console.log("was undefined, a new flashcard set");
+            flashcards = [{}];
+            populateemptyflashcard();
+        }
+    } else {
+        console.log("populating empty flashcard set");
+        populateemptyflashcard();
+    }
+} catch {
+    console.log("failed to get flashcards from localstorage to set initilaly");
+    //populates the first flashcard that the user is given
+    populateemptyflashcard();
+}
+
+
+
+document.getElementById("text").value = flashcards[whichcard][filteredarr[whichtopic]]; //in case we're updating the info from localstorage
+//we have to set the text value of the initial card
 
 document.querySelector(".topic h1").innerHTML = "Flashcard Set: " + newname;
 document.querySelector(".topic h2").innerHTML = filteredarr[whichtopic] + ':';
@@ -142,7 +171,10 @@ document.getElementById("delete").addEventListener('click', () => {
 })
 
 document.getElementById("finish").addEventListener("click", () => {
+    //saves whatever is in the final slide in case this was the only button clicked after entering it
+    var topic = filteredarr[whichtopic];
+    flashcards[whichcard][topic] = document.getElementById("text").value;
+
     savedata();
-    alert("Access your flashcard set anytime from the existing sets!");
-    window.location.href = "index.html";
+    window.location.href = "confirmedit.html";
 })
