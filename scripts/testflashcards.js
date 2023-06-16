@@ -20,9 +20,15 @@ var whichcard = 0;
 
 const numTopics = topicsarr.length;
 
+var appearanceorder = "";
+for (var i = 0; i < topicsarr.length-1; i++) {
+    appearanceorder = appearanceorder + topicsarr[i] + ', ';
+}
+appearanceorder += topicsarr[topicsarr.length-1];
+
 function updateinfo() {
     document.querySelector(".topic h3").innerHTML = topicsarr[whichtopic] + ':';
-    document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + topicsarr.length;
+    document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + topicsarr.length + ', Order of appearance:' + appearanceorder;
     document.querySelector(".notes h1").innerHTML = flashcards[shuffledindexes[whichcard]][topicsarr[whichtopic]];
 }
 
@@ -44,7 +50,7 @@ document.querySelector(".notes h1").innerHTML = flashcards[shuffledindexes[which
 
 document.querySelector(".topic h2").innerHTML = "Flashcard Set: " + newname;
 document.querySelector(".topic h3").innerHTML = topicsarr[whichtopic] + ':';
-document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + topicsarr.length;
+document.querySelector(".topic p").innerHTML = 'card ' + (whichcard + 1) + '/' + flashcards.length + ", side " + (whichtopic+1)  + '/' + topicsarr.length + ', Order of appearance: ' + appearanceorder;
 
 
 document.getElementById("flipside").addEventListener('click', () => {
