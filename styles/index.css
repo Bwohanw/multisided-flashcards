@@ -4,13 +4,13 @@
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
     /*TO BE REMOVED*/
-    border:1px solid black;
+    /* border:1px solid black; */
   }
 
 
   .container {
     width:100%;
-    height:30rem;
+    height:10rem;
     display:flex;
     align-items:center;
     background-color: blanchedalmond;
@@ -24,11 +24,11 @@
 }
 
   .btn1 {
-    padding-top:6rem;
+    padding-top:1rem;
     text-decoration: none;
   }
 
   .btn2 {
-    padding-top:6rem;
+    padding-top:1rem;
     text-decoration: none;
   }
