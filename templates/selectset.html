@@ -7,14 +7,17 @@
         <link rel="stylesheet" href="../styles/selectset.css">
     </head>
     <body>
-        <div id="formbox" class="formbox" style="background-color:blanchedalmond; width:15rem; height:fit-content;">
+        <div id="formbox" class="formbox" style="background-color:blanchedalmond; width:15rem; height:fit-content; display:flex; flex-direction:column;">
             <form id="formcontent">
-                <h1 style="font-size:medium">Pick an Existing Flashcard Set:</h1><br>
+                <h1 style="font-size:medium">Pick an Existing Flashcard Deck:</h1><br>
                 <select name="flashcardlist" id="flashcardlist" style="width:10rem;">
 
                 </select>
                 <input id="submit" type="submit" value="Select">
             </form>
+            <div style="width:30%">
+                <button id="back"><a href="index.html" style="text-decoration:none;color:black;">Back</a></button>
+            </div>
         </div>
         <script src="../scripts/selectset.js"></script>
     </body>

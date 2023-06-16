@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Existing flashcard set info</title>
+        <link rel="stylesheet" href="../styles/selectset.css">
+    </head>
+    <body>
+        <div id="formbox" class="formbox" style="background-color:blanchedalmond; width:15rem; height:fit-content; display:flex; flex-direction:column;">
+            <h1 style="font-size:medium">Pick the next side you would like to be tested on:</h1><br>
+            <p></p>
+            <form id="formcontent">
+                <select name="flashcardlist" id="flashcardlist" style="width:10rem;">
+
+                </select>
+                <input id="submit" type="submit" value="Select">
+            </form>
+            <br>
+            <div id="buttons" style="display:flex;justify-content:space-between;">
+                <button id="undo">Undo</button>
+                <button id="back"><a href="testorder.html" style="text-decoration:none;color:black;">Back</a></button>
+            </div>
+            <br>
+            <div id="listing" style="display:flex; align-items:center;">
+                <h2>Topic Order:</h2>
+                <ol id="sideorder">
+                    <li>test</li>
+                    <li>test2</li>
+                    <li>test3</li>
+                    <li>test3</li>
+                    <li>test3</li>
+                    <li>test3</li>
+                </ol>
+            </div>
+        </div>
+        <script src="../scripts/selectsides.js"></script>
+    </body>
+</html>

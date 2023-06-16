@@ -33,7 +33,7 @@ infoform.addEventListener("submit", (e) => {
     var cardlist = existing[setname];
     var topiclist = Object.keys(cardlist[0]);
     let topics = topiclist.join(';');
-    alert(topics);
+    
     localStorage.setItem("newtopics", topics);
     window.location.href="editortest.html";
 })
