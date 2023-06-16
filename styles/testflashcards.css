@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    /*TO BE REMOVED*/
+    border:1px solid black;
+  }
+
+  html {
+    font-size: large;
+  }
+
+
+  .container {
+    width:100%;
+    height:100%;
+    background-color: blanchedalmond;
+  }
+
+  .notes {
+    width:30rem;
+    height:20rem;
+    display:flex;
+    justify-content: center;
+  }
+
+
+  #langle {
+    padding-right:1rem;
+  }
+
+  #langle:hover {
+    cursor: pointer;
+  }
+
+  #rangle {
+    padding-left:1rem;
+  }
+
+  #rangle:hover {
+    cursor:pointer;
+  }
+
+
+
+  .buttoncontain {
+    width:100%;
+    display:flex;
+    justify-content:space-evenly;
+  }
+
+
+  #flipside {
+    font-size:large;
+  }
+
+  #flipside:hover {
+    cursor: pointer;
+  }
+
+  #finish {
+    font-size:large;
+    margin-left:3rem;
+  }
+
+  #finish:hover {
+    cursor:pointer;
+  }
+
+#shuffle {
+    font-size:large;
+    margin-left:3rem;
+}
+
+#shuffle:hover {
+    cursor:pointer;
+}
+
+
