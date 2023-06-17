@@ -11,6 +11,8 @@ var topiclist = Object.keys(thesecards[0]);//a list of all the topics for the co
 document.querySelector(".formbox h2").innerHTML = "Selected Deck: " + localStorage.getItem("newname");
 document.querySelector(".formbox p").innerHTML = "Maximum: " + topiclist.length + " sides";
 
+document.getElementById("howmany").max = topiclist.length;
+
 let infoform = document.getElementById("formcontent");
 infoform.addEventListener("submit", (e) => {
     e.preventDefault();
