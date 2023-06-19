@@ -16,7 +16,7 @@ for (var i = 0; i < topiclist.length; i++) {
     tombstoning.push(1);
 }
 
-document.querySelector(".formbox h1").innerHTML = "Pick the first side you would like to be tested on:";
+document.querySelector(".formbox h1").innerHTML = "Pick the side you would like to see first:";
 document.querySelector(".formbox p").innerHTML = "Total sides: " + totalsides + ", " + remainder + " left to choose";
 
 function addOption(element) {
@@ -91,6 +91,8 @@ document.getElementById("undo").addEventListener("click", (e) => {
         document.querySelector(".formbox p").innerHTML = "Total sides: " + totalsides + ", " + remainder + " left to choose";
     }
     if (remainder > totalsides) remainder = totalsides;
+
+    document.querySelector(".formbox p").innerHTML = "Total sides: " + totalsides + ", " + remainder + " left to choose";
 
     var list=document.getElementById("sideorder");
     var listItems = list.getElementsByTagName("li");
